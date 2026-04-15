@@ -2,14 +2,14 @@ import { useState } from 'react';
 import './App.css';
 import { WhatsAppIcon, CheckIcon, ChevronDownIcon } from './components/Icons';
 
-import videoAirFlow from 'https://res.cloudinary.com/drczznkji/video/upload/v1776289409/AirFlow_Legendado_ndqzhs.mp4';
-import videoCasaCambui from 'https://res.cloudinary.com/drczznkji/video/upload/v1776289409/CasaCambui_legendado_kj2cqz.mp4';
-import videoExpo from 'https://res.cloudinary.com/drczznkji/video/upload/v1776289409/Expo_bordado_legendado_gnzvl6.mp4';
-import videoFaq from 'https://res.cloudinary.com/drczznkji/video/upload/v1776289410/Faq_30s_ekkxl1.mp4';
-import videoAgencia from 'https://res.cloudinary.com/drczznkji/video/upload/v1776289409/agencia_formato_autoral_hzrvnh.mp4';
-import videoBebe from 'https://res.cloudinary.com/drczznkji/video/upload/v1776289410/bebe_gourmet_final_zp6hj9.mp4';
-import video01 from 'https://res.cloudinary.com/drczznkji/video/upload/v1776289417/video01_uoet4m.mp4';
-import video04 from 'https://res.cloudinary.com/drczznkji/video/upload/v1776289415/video04_bsa751.mp4';
+const videoAirFlow = 'https://res.cloudinary.com/drczznkji/video/upload/v1776289409/AirFlow_Legendado_ndqzhs.mp4';
+const videoCasaCambui = 'https://res.cloudinary.com/drczznkji/video/upload/v1776289409/CasaCambui_legendado_kj2cqz.mp4';
+const videoExpo = 'https://res.cloudinary.com/drczznkji/video/upload/v1776289409/Expo_bordado_legendado_gnzvl6.mp4';
+const videoFaq = 'https://res.cloudinary.com/drczznkji/video/upload/v1776289410/Faq_30s_ekkxl1.mp4';
+const videoAgencia = 'https://res.cloudinary.com/drczznkji/video/upload/v1776289409/agencia_formato_autoral_hzrvnh.mp4';
+const videoBebe = 'https://res.cloudinary.com/drczznkji/video/upload/v1776289410/bebe_gourmet_final_zp6hj9.mp4';
+const video01 = 'https://res.cloudinary.com/drczznkji/video/upload/v1776289417/video01_uoet4m.mp4';
+const video04 = 'https://res.cloudinary.com/drczznkji/video/upload/v1776289415/video04_bsa751.mp4';
 
 import logoCasaCasual from './assets/logos/casa_casual.jpg';
 import logoIgorTramontina from './assets/logos/igor_tramontina.png';
