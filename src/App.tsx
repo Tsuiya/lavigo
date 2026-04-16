@@ -192,11 +192,11 @@ function App() {
         <div className="container center">
           <h2 className="section-title text-gradient-accent">Aprovado por grandes marcas</h2>
           <div className="logos-grid mt-4" style={{ alignItems: 'center' }}>
-            <img src={logoCasaCasual} alt="Casa Casual" style={{ maxHeight: '50px' }} />
-            <img src={logoIgorTramontina} alt="Igor Tramontina" style={{ maxHeight: '50px' }} />
-            <img src={logoJoaoDeBarro} alt="João de Barro" style={{ maxHeight: '50px' }} />
-            <img src={logoRaGroup} alt="RA Group" style={{ maxHeight: '50px' }} />
-            <img src={logoSoberano} alt="Soberano Muaythai" style={{ maxHeight: '50px' }} />
+            <img src={logoCasaCasual} alt="Casa Casual" style={{ maxHeight: '50px' }} loading="lazy" />
+            <img src={logoIgorTramontina} alt="Igor Tramontina" style={{ maxHeight: '50px' }} loading="lazy" />
+            <img src={logoJoaoDeBarro} alt="João de Barro" style={{ maxHeight: '50px' }} loading="lazy" />
+            <img src={logoRaGroup} alt="RA Group" style={{ maxHeight: '50px' }} loading="lazy" />
+            <img src={logoSoberano} alt="Soberano Muaythai" style={{ maxHeight: '50px' }} loading="lazy" />
           </div>
 
           <div className="testimonials-grid mt-5">
