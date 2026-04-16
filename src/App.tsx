@@ -241,25 +241,25 @@ function App() {
             <div className="process-step">
               <div className="step-number">1</div>
               <h4>Diagnóstico</h4>
-              <p>Reunião de alinhamento estratégico e definição de metas.</p>
+              <p>Entendemos seu negócio e seus objetivos.</p>
             </div>
             <div className="process-line"></div>
             <div className="process-step">
               <div className="step-number">2</div>
               <h4>Planejamento</h4>
-              <p>Criação dos roteiros e preparação da logística de captação.</p>
+              <p>Definimos a melhor estratégia de conteúdo.</p>
             </div>
             <div className="process-line"></div>
             <div className="process-step">
               <div className="step-number">3</div>
               <h4>Produção</h4>
-              <p>Dia de gravação com direção técnica e artística de ponta.</p>
+              <p>Captação e direção profissional.</p>
             </div>
             <div className="process-line"></div>
             <div className="process-step">
               <div className="step-number">4</div>
               <h4>Entrega</h4>
-              <p>Edição dinâmica, color grading cinematográfico e entrega das peças.</p>
+              <p>Conteúdo pronto para gerar resultados.</p>
             </div>
           </div>
         </div>
@@ -270,7 +270,7 @@ function App() {
         <div className="container">
           <h2 className="cta-inter-title">Se você quer crescer, precisa ser visto.</h2>
           <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn btn-accent mt-4">
-            Falar com especialista
+            👉 Quero atrair mais clientes
           </a>
         </div>
       </section>

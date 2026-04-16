@@ -8,17 +8,51 @@
   text-align: center;
 }
 
-.mt-3 { margin-top: 1rem; }
-.mt-4 { margin-top: 1.5rem; }
-.mt-5 { margin-top: 3rem; }
-.mb-5 { margin-bottom: 3rem; }
-.text-lg { font-size: 1.25rem; }
-.text-sm { font-size: 0.875rem; color: #ccc; }
-.max-w-3xl { max-width: 800px; margin: 0 auto; }
-.bg-dark { background-color: #121212; }
-.text-white { color: white; }
-.relative { position: relative; }
-.z-10 { z-index: 10; }
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.mb-5 {
+  margin-bottom: 3rem;
+}
+
+.text-lg {
+  font-size: 1.25rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  color: #ccc;
+}
+
+.max-w-3xl {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bg-dark {
+  background-color: #121212;
+}
+
+.text-white {
+  color: white;
+}
+
+.relative {
+  position: relative;
+}
+
+.z-10 {
+  z-index: 10;
+}
 
 .section-title {
   margin-bottom: 1rem;
@@ -35,7 +69,10 @@
 
 .hero-background {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: var(--color-bg);
   overflow: hidden;
   z-index: 0;
@@ -43,14 +80,20 @@
 
 .hero-overlay {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(180deg, rgba(21,21,21,0.5) 0%, rgba(21,21,21,1) 100%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(21, 21, 21, 0.5) 0%, rgba(21, 21, 21, 1) 100%);
   z-index: 2;
 }
 
 .hero-pattern {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: radial-gradient(var(--color-surface-light) 2px, transparent 2px);
   background-size: 40px 40px;
   opacity: 0.2;
@@ -78,8 +121,15 @@
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* 2. Problem Section */
@@ -98,13 +148,13 @@
   background: var(--color-surface);
   padding: 40px 30px;
   border-radius: var(--border-radius);
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   transition: var(--transition-smooth);
 }
 
 .problem-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255,255,255,0.1);
+  border-color: rgba(255, 255, 255, 0.1);
   background: var(--color-surface-light);
 }
 
@@ -188,13 +238,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,0.2);
+  color: rgba(255, 255, 255, 0.2);
 }
 
 .play-icon-large {
   width: 64px;
   height: 64px;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* 4. Services */
@@ -216,7 +266,7 @@
 .service-card:hover {
   border-top-color: var(--color-accent);
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .service-icon {
@@ -240,8 +290,10 @@
   gap: 20px;
   padding: 20px 24px 60px;
   margin-top: 40px;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
 }
 
 .portfolio-scroll::-webkit-scrollbar {
@@ -249,7 +301,8 @@
 }
 
 .portfolio-item {
-  flex: 0 0 calc(80vw - 40px); /* Mobile default */
+  flex: 0 0 calc(80vw - 40px);
+  /* Mobile default */
   max-width: 320px;
 }
 
@@ -305,7 +358,7 @@
 }
 
 .diff-item {
-  background: linear-gradient(180deg, var(--color-surface) 0%, rgba(33,33,33,0) 100%);
+  background: linear-gradient(180deg, var(--color-surface) 0%, rgba(33, 33, 33, 0) 100%);
   padding: 40px 30px;
   border-radius: var(--border-radius);
 }
@@ -367,7 +420,7 @@
 .process-line {
   flex: 1;
   height: 2px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   margin-top: 30px;
   position: relative;
   z-index: 1;
@@ -378,6 +431,7 @@
     flex-direction: column;
     align-items: center;
   }
+
   .process-line {
     width: 2px;
     height: 40px;
@@ -388,8 +442,8 @@
 /* 9. Intermediary CTA */
 .cta-inter {
   padding: 60px 0;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .cta-inter-title {
@@ -414,7 +468,7 @@
 }
 
 .faq-item:hover {
-  border-color: rgba(255,255,255,0.1);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .faq-question {
@@ -487,7 +541,7 @@
 /* Footer */
 .footer {
   padding: 40px 0;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   color: var(--color-text-muted);
   font-size: 0.9rem;
 }
@@ -503,7 +557,7 @@
     justify-content: center;
     text-align: left;
   }
-  
+
   .solution-video {
     margin: 0 auto;
   }
@@ -513,10 +567,15 @@
   .section {
     padding: 60px 0;
   }
-  
-  h1 { font-size: 2.2rem; }
-  h2 { font-size: 1.8rem; }
-  
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
   .portfolio-item {
     flex: 0 0 85vw;
   }
