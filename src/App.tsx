@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import { WhatsAppIcon, CheckIcon, ChevronDownIcon } from './components/Icons';
+import { Analytics } from "@vercel/analytics/next"
+
 
 const videoAirFlow = 'https://res.cloudinary.com/drczznkji/video/upload/v1776289409/AirFlow_Legendado_ndqzhs.mp4';
 const videoCasaCambui = 'https://res.cloudinary.com/drczznkji/video/upload/v1776289409/CasaCambui_legendado_kj2cqz.mp4';
@@ -28,6 +30,8 @@ const PORTFOLIO_VIDEOS = [
   { id: 5, title: 'Vila dos Sonhos', category: 'Produção de Anúncios', src: video04 },
   { id: 6, title: 'Perguntas Frequentes', category: 'Material Comercial', src: videoFaq }
 ];
+
+<Analytics />
 
 const LazyVideo = ({ src, type = "video/mp4", ...props }: any) => {
   const videoRef = useRef<HTMLVideoElement>(null);
