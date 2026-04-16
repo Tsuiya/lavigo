@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import { WhatsAppIcon, CheckIcon, ChevronDownIcon } from './components/Icons';
 
@@ -29,15 +29,44 @@ const PORTFOLIO_VIDEOS = [
   { id: 6, title: 'Perguntas Frequentes', category: 'Material Comercial', src: videoFaq }
 ];
 
+const LazyVideo = ({ src, type = "video/mp4", ...props }: any) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsIntersecting(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <video ref={videoRef} {...props}>
+      {isIntersecting && <source src={src} type={type} />}
+    </video>
+  );
+};
+
 function App() {
   return (
     <div className="app-container">
       {/* 1. HERO SECTION */}
       <section className="hero-section">
         <div className="hero-background">
-          <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0, zIndex: 0 }}>
-            <source src={videoAgencia} type="video/mp4" />
-          </video>
+          <LazyVideo src={videoAgencia} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0, zIndex: 0 }} />
           <div className="hero-overlay"></div>
           <div className="hero-pattern"></div>
         </div>
@@ -95,9 +124,7 @@ function App() {
           </div>
           <div className="solution-visual">
             <div className="video-card solution-video" style={{ borderRadius: '16px', overflow: 'hidden', position: 'relative', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '16px' }}>
-                <source src={video01} type="video/mp4" />
-              </video>
+              <LazyVideo src={video01} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '16px' }} />
             </div>
             <div className="glow-effect-blue"></div>
           </div>
@@ -147,9 +174,7 @@ function App() {
         <div className="portfolio-scroll">
           {PORTFOLIO_VIDEOS.map((item) => (
             <div key={item.id} className="video-card portfolio-item" style={{ borderRadius: '16px', overflow: 'hidden', position: 'relative', border: '1px solid rgba(255,255,255,0.1)', cursor: 'pointer', flexShrink: 0 }}>
-              <video autoPlay loop muted playsInline style={{ width: '100%', height: '440px', objectFit: 'cover', display: 'block' }}>
-                <source src={item.src} type="video/mp4" />
-              </video>
+              <LazyVideo src={item.src} autoPlay loop muted playsInline style={{ width: '100%', height: '440px', objectFit: 'cover', display: 'block' }} />
               <div className="video-card-overlay" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '40px 20px 20px', background: 'linear-gradient(0deg, rgba(15,15,15,0.95) 0%, rgba(15,15,15,0) 100%)', zIndex: 10 }}>
                 <h4 style={{ margin: '0 0 6px 0', color: '#fff', fontSize: '1.2rem', fontWeight: 600 }}>{item.title}</h4>
                 <p className="text-sm" style={{ margin: 0, color: '#aaa' }}>{item.category}</p>
