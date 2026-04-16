@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import { WhatsAppIcon, CheckIcon, ChevronDownIcon } from './components/Icons';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 
 const videoAirFlow = 'https://res.cloudinary.com/drczznkji/video/upload/v1776289409/AirFlow_Legendado_ndqzhs.mp4';
@@ -30,8 +30,6 @@ const PORTFOLIO_VIDEOS = [
   { id: 5, title: 'Vila dos Sonhos', category: 'Produção de Anúncios', src: video04 },
   { id: 6, title: 'Perguntas Frequentes', category: 'Material Comercial', src: videoFaq }
 ];
-
-<Analytics />
 
 const LazyVideo = ({ src, type = "video/mp4", ...props }: any) => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -67,6 +65,7 @@ const LazyVideo = ({ src, type = "video/mp4", ...props }: any) => {
 function App() {
   return (
     <div className="app-container">
+      <Analytics />
       {/* 1. HERO SECTION */}
       <section className="hero-section">
         <div className="hero-background">
