@@ -538,12 +538,150 @@
   font-size: 1.25rem;
 }
 
+/* Wedding Photography Section */
+.wedding-section {
+  overflow: hidden;
+}
+
+.wedding-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 50px;
+}
+
+.wedding-photo-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+}
+
+.wedding-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.wedding-photo-wrapper:hover .wedding-photo {
+  transform: scale(1.06);
+}
+
+.wedding-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.5) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.wedding-photo-wrapper:hover .wedding-photo-overlay {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .wedding-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .wedding-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wedding-photo-wrapper {
+    aspect-ratio: 4 / 3;
+  }
+}
+
 /* Footer */
 .footer {
-  padding: 40px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 60px 0 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0d0d0d;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.footer-tagline {
   color: var(--color-text-muted);
   font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer-social {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 10px 18px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: var(--transition-smooth);
+  background: transparent;
+}
+
+.social-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.social-link:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: rgba(200, 107, 60, 0.08);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 24px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* Responsive */

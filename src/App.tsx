@@ -31,6 +31,15 @@ const PORTFOLIO_VIDEOS = [
   { id: 6, title: 'Perguntas Frequentes', category: 'Material Comercial', src: videoFaq }
 ];
 
+const WEDDING_PHOTOS = [
+  { id: 1, src: 'https://res.cloudinary.com/drczznkji/image/upload/v1776972786/LR-6_kdkf2b.jpg', alt: 'Casamento - LR 6' },
+  { id: 2, src: 'https://res.cloudinary.com/drczznkji/image/upload/v1776972786/LR-20_oyt27f.jpg', alt: 'Casamento - LR 20' },
+  { id: 3, src: 'https://res.cloudinary.com/drczznkji/image/upload/v1776972786/LR-3_yip935.jpg', alt: 'Casamento - LR 3' },
+  { id: 4, src: 'https://res.cloudinary.com/drczznkji/image/upload/v1776972786/LR-5_j2ri4t.jpg', alt: 'Casamento - LR 5' },
+  { id: 5, src: 'https://res.cloudinary.com/drczznkji/image/upload/v1776972786/LR-13_voqxat.jpg', alt: 'Casamento - LR 13' },
+  { id: 6, src: 'https://res.cloudinary.com/drczznkji/image/upload/v1776972857/LR-1_schl7z.jpg', alt: 'Casamento - LR 1' }
+];
+
 const LazyVideo = ({ src, type = "video/mp4", ...props }: any) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -187,6 +196,29 @@ function App() {
         </div>
       </section>
 
+      {/* 5.5 WEDDING PHOTOGRAPHY SECTION */}
+      <section className="section wedding-section bg-dark">
+        <div className="container">
+          <div className="section-header center">
+            <h2 className="section-title">Fotografia de <span className="text-gradient-accent">Casamentos</span></h2>
+            <p>Momentos eternizados com emoção e beleza.</p>
+          </div>
+          <div className="wedding-grid">
+            {WEDDING_PHOTOS.map((photo) => (
+              <div key={photo.id} className="wedding-photo-wrapper">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="wedding-photo"
+                  loading="lazy"
+                />
+                <div className="wedding-photo-overlay"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 6. SOCIAL PROOF SECTION */}
       <section className="section social-proof bg-dark">
         <div className="container center">
@@ -291,8 +323,34 @@ function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className="footer center">
-        <p>© 2026 Lavigo Studios. Todos os direitos reservados.</p>
+      <footer className="footer">
+        <div className="container">
+          <div className="footer-inner">
+            <div className="footer-brand">
+              <span className="footer-logo">Lavigo Studios</span>
+              <p className="footer-tagline">Conteúdo que posiciona e vende.</p>
+            </div>
+            <div className="footer-social">
+              <a href="https://www.instagram.com/lavigoprod/" target="_blank" rel="noreferrer" className="social-link" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+                </svg>
+                <span>Instagram</span>
+              </a>
+              <a href="https://www.facebook.com/lavigoprod" target="_blank" rel="noreferrer" className="social-link" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+                <span>Facebook</span>
+              </a>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <p>© 2026 Lavigo Studios. Todos os direitos reservados.</p>
+          </div>
+        </div>
       </footer>
 
       {/* FLOATING WHATSAPP */}
