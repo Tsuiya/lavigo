@@ -592,10 +592,6 @@
   .wedding-grid {
     grid-template-columns: 1fr;
   }
-
-  .wedding-photo-wrapper {
-    aspect-ratio: 4 / 3;
-  }
 }
 
 /* Footer */
