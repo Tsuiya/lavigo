@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import { WhatsAppIcon, CheckIcon, ChevronDownIcon } from './components/Icons';
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import { useTracking } from './analytics/hooks/useTracking';
+import { useVideoTracking } from './analytics/hooks/useVideoTracking';
 
 
 const videoAirFlow = 'https://res.cloudinary.com/drczznkji/video/upload/v1776289409/AirFlow_Legendado_ndqzhs.mp4';
@@ -40,9 +42,11 @@ const WEDDING_PHOTOS = [
   { id: 6, src: 'https://res.cloudinary.com/drczznkji/image/upload/v1776972857/LR-1_schl7z.jpg', alt: 'Casamento - LR 1' }
 ];
 
-const LazyVideo = ({ src, type = "video/mp4", ...props }: any) => {
+const LazyVideo = ({ src, type = "video/mp4", videoName = "unnamed_video", ...props }: any) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
+  
+  useVideoTracking(videoRef, videoName);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -72,13 +76,15 @@ const LazyVideo = ({ src, type = "video/mp4", ...props }: any) => {
 };
 
 function App() {
+  const { onCTAClick, onWhatsAppClick } = useTracking("home");
+
   return (
     <div className="app-container">
       <Analytics />
       {/* 1. HERO SECTION */}
       <section className="hero-section">
         <div className="hero-background">
-          <LazyVideo src={videoAgencia} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0, zIndex: 0 }} />
+          <LazyVideo videoName="hero_video" src={videoAgencia} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0, zIndex: 0 }} />
           <div className="hero-overlay"></div>
           <div className="hero-pattern"></div>
         </div>
@@ -89,7 +95,7 @@ function App() {
           <p className="hero-subtitle">
             Produções estratégicas para empresas que querem crescer, atrair clientes e cobrar mais caro
           </p>
-          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn btn-accent hero-cta">
+          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn btn-accent hero-cta" onClick={() => { onCTAClick('quero_atrair_clientes', 'hero'); onWhatsAppClick('hero'); }}>
             Quero atrair mais clientes
           </a>
         </div>
@@ -136,7 +142,7 @@ function App() {
           </div>
           <div className="solution-visual">
             <div className="video-card solution-video" style={{ borderRadius: '16px', overflow: 'hidden', position: 'relative', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <LazyVideo src={video01} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '16px' }} />
+              <LazyVideo videoName="solution_video" src={video01} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '16px' }} />
             </div>
             <div className="glow-effect-blue"></div>
           </div>
@@ -186,7 +192,7 @@ function App() {
         <div className="portfolio-scroll">
           {PORTFOLIO_VIDEOS.map((item) => (
             <div key={item.id} className="video-card portfolio-item" style={{ borderRadius: '16px', overflow: 'hidden', position: 'relative', border: '1px solid rgba(255,255,255,0.1)', cursor: 'pointer', flexShrink: 0 }}>
-              <LazyVideo src={item.src} autoPlay loop muted playsInline style={{ width: '100%', height: '440px', objectFit: 'cover', display: 'block' }} />
+              <LazyVideo videoName={`portfolio_video_${item.title.replace(/\s+/g, '_').toLowerCase()}`} src={item.src} autoPlay loop muted playsInline style={{ width: '100%', height: '440px', objectFit: 'cover', display: 'block' }} />
               <div className="video-card-overlay" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '40px 20px 20px', background: 'linear-gradient(0deg, rgba(15,15,15,0.95) 0%, rgba(15,15,15,0) 100%)', zIndex: 10 }}>
                 <h4 style={{ margin: '0 0 6px 0', color: '#fff', fontSize: '1.2rem', fontWeight: 600 }}>{item.title}</h4>
                 <p className="text-sm" style={{ margin: 0, color: '#aaa' }}>{item.category}</p>
@@ -301,7 +307,7 @@ function App() {
       <section className="section cta-inter center">
         <div className="container">
           <h2 className="cta-inter-title">Se você quer crescer, precisa ser visto.</h2>
-          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn btn-accent mt-4">
+          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn btn-accent mt-4" onClick={() => { onCTAClick('quero_atrair_clientes_intermediary', 'intermediary_cta'); onWhatsAppClick('intermediary_cta'); }}>
             👉 Quero atrair mais clientes
           </a>
         </div>
@@ -316,7 +322,7 @@ function App() {
         <div className="container relative z-10">
           <h2>Pare de perder clientes por <span className="text-gradient-accent">falta de posicionamento.</span></h2>
           <p className="mt-3 text-lg mb-5">Eleve sua marca hoje mesmo. Agende uma consultoria gratuita.</p>
-          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn btn-accent btn-large">
+          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn btn-accent btn-large" onClick={() => { onCTAClick('falar_whatsapp_agora', 'final_cta'); onWhatsAppClick('final_cta'); }}>
             👉 Falar no WhatsApp agora
           </a>
         </div>
@@ -354,7 +360,7 @@ function App() {
       </footer>
 
       {/* FLOATING WHATSAPP */}
-      <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="floating-whatsapp" aria-label="Fale conosco no WhatsApp">
+      <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="floating-whatsapp" aria-label="Fale conosco no WhatsApp" onClick={() => onWhatsAppClick('floating_button')}>
         <WhatsAppIcon />
       </a>
     </div>
