@@ -46,7 +46,7 @@ export const AnalyticsProvider: React.FC<AnalyticsProviderProps> = ({
       document.head.appendChild(ga4Script);
 
       window.dataLayer = window.dataLayer || [];
-      function gtag(...args: any[]) {
+      function gtag(..._args: any[]) {
         window.dataLayer.push(arguments);
       }
       (window as any).gtag = gtag;

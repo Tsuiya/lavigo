@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { trackVideo } from '../dataLayer';
 
-export const useVideoTracking = (videoRef: React.RefObject<HTMLVideoElement>, videoName: string) => {
+export const useVideoTracking = (videoRef: React.RefObject<HTMLVideoElement | null>, videoName: string) => {
 
   useEffect(() => {
     const video = videoRef.current;
